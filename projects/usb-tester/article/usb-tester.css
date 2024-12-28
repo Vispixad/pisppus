@@ -1,0 +1,532 @@
+@font-face {
+  font-family: "SF-Pro-Display-Medium";
+  src: url("/fonts/SF-Pro-Display-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "SF-Pro-Display-Regular";
+  src: url("/fonts/SF-Pro-Display-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Светлая тема */
+:root[data-theme="light"] {
+  --icon-spacing: 10px;
+  --blur-strength: 10px;
+  --background-color: #ffffff;
+  --text-color: #222222;
+  --text-color-p: #515151;
+  --sidebar-text-color: #ffffff;
+  --header-background: rgba(250, 250, 250, 0.63);
+  --header-border: #ebebeb;
+  --border-input: rgba(167, 166, 166, 0.63);
+  --background-input: rgba(255, 255, 255, 0.63);
+  --button1-color: rgb(255, 255, 255);
+  --button2-color: rgba(255, 255, 255, 0.63);
+  --style-back-color: #fafafa;
+  --style-border: #e9e9e9;
+  --theme-modal-button-hover: #d6d6d6;
+  --note-back-color: #e3f1ff;
+  --note-border: #c0dfff;
+  --note-a-color: #007acc;
+  --warn-border: #ffc0c0;
+  --warn-back-color: #ffe3e3;
+  --footer-back-color: #ededed;
+  --footer-border: #cfcfcf;
+  --footer-text-color: #636363;
+}
+/* Тёмная тема */
+:root[data-theme="dark"] {
+  --icon-spacing: 10px;
+  --blur-strength: 10px;
+  --background-color: #121212;
+  --text-color: #d8d8d8;
+  --text-color-p: #d8d8d8;
+  --sidebar-text-color: #ffffff;
+  --header-background: rgba(54, 54, 54, 0.63);
+  --header-border: #444444;
+  --border-input: rgba(97, 97, 97, 0.63);
+  --background-input: rgba(63, 63, 63, 0.63);
+  --button1-color: rgb(31, 31, 31);
+  --button2-color: rgba(63, 63, 63, 0.63);
+  --style-back-color: #232323;
+  --style-border: #3d3d3d;
+  --theme-modal-button-hover: #555555;
+  --note-back-color: #374a5d;
+  --note-border: #557fab;
+  --note-a-color: #1ca4ff;
+  --warn-border: #ab5555;
+  --warn-back-color: #5d3737;
+  --footer-back-color: #232323;
+  --footer-border: #3d3d3d;
+  --footer-text-color: #b7b7b7;
+}
+body {
+  margin: 0;
+  font-family: "SF-Pro-Display-Regular";
+  background-color: var(--background-color);
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  background: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+  backdrop-filter: blur(var(--blur-strength));
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.header .logo {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Schoolbell", cursive;
+}
+.header .nav {
+  font-family: "SF-Pro-Display-Medium";
+  display: flex;
+  gap: 30px;
+  margin-right: 20px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.header a:hover {
+  color: #007bff;
+}
+.calculators-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.beta-label {
+  background-color: #ff223f;
+  color: rgb(255, 255, 255);
+  font-size: 11.5px;
+  padding: 3px 6px;
+  border-radius: 6.5px;
+  font-weight: bold;
+}
+.header .right-section {
+  display: flex;
+  align-items: center; /* Центрируем элементы по вертикали */
+  gap: 20px; /* Расстояние между элементами */
+  margin-left: auto; /* Сдвигаем блок вправо */
+}
+
+.header .search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header input[type="text"] {
+  color: var(--text-color);
+  font-family: "SF-Pro-Display-Medium";
+  padding: 5px 10px;
+  width: 220px;
+  border: 1px solid var(--border-input);
+  background-color: var(--background-input);
+  border-radius: 11px;
+  outline: none;
+  font-size: 16.5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header input[type="text"]:focus {
+  border-color: #1d86ff;
+}
+.header .buttons {
+  display: flex;
+  gap: 20px; /* Расстояние между кнопками */
+}
+.header .button1 {
+  font-family: "SF-Pro-Display-Medium";
+  padding: 7px 15px;
+  font-size: 15px;
+  color: var(--button1-color);
+  border-radius: 8px;
+  border: none;
+  background-color: var(--text-color);
+  cursor: pointer;
+}
+.header .button2 {
+  font-family: "SF-Pro-Display-Medium";
+  background-color: var(--button2-color);
+  padding: 6px 15px;
+  font-size: 15px;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: var(--icon-spacing);
+}
+
+.header .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.theme-modal {
+  position: fixed;
+  top: 65px;
+  right: 15px;
+  background-color: var(--style-back-color);
+  border: 1px solid var(--style-border);
+  border-radius: 8px;
+  padding: 0px 10px 0px 10px;
+  opacity: 0; /* Начальное состояние */
+  transform: translateY(-10px); /* Смещение для анимации */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Плавное появление */
+}
+.theme-modal button {
+  display: block;
+  width: 100%;
+  margin: 9px 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-family: "SF-Pro-Display-Regular";
+  font-size: 15px;
+  color: var(--text-color);
+  background-color: var(--style-border);
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавная смена фона */
+}
+.theme-modal button:hover {
+  background-color: var(
+    --theme-modal-button-hover
+  ); /* Новый цвет фона при наведении */
+}
+.theme-modal.visible {
+  opacity: 1; /* Видимость */
+  transform: translateY(0); /* Убираем смещение */
+}
+
+.hidden {
+  display: none;
+}
+.breadcrumbs {
+  font-size: 17px;
+  color: #222222;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Расстояние между элементами */
+  padding: 10px 15px; /* Внутренние отступы */
+  background-color: var(--style-back-color);
+  border: 1px solid var(--style-border); /* Цвет границы */
+  border-radius: 9px;
+  margin: 20px 300px 0px 300px; /* Внешние отступы: сверху и снизу 20px, слева и справа 200px */
+}
+
+.breadcrumb {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.2s ease;
+}
+
+.breadcrumb-separator {
+  color: var(--text-color);
+}
+
+.breadcrumb-current {
+  color: var(--text-color);
+  font-weight: bold;
+}
+.article-content img {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  max-width: 850px;
+  object-fit: contain;
+  border-radius: 10px;
+}
+/* Общий макет */
+.article-layout {
+  display: flex;
+  gap: 20px; /* Увеличенный отступ между блоками */
+  background-color: var(--background-color); /* Белый фон */
+  color: var(--text-color); /* Тёмный текст */
+  font-family: Arial, sans-serif;
+  padding: 20px 300px 30px 300px;
+}
+/* Боковая панель */
+.article-sidebar {
+  position: sticky;
+  top: 75px; /* Фиксированное положение сверху */
+  width: 175px; /* Уменьшенная ширина */
+  height: 465px;
+  padding: 0px 15px 10px 15px;
+  background-color: var(--style-back-color); /* Светло-серый фон */
+  border: 1px solid var(--style-border); /* Тонкая граница */
+  border-radius: 9px;
+}
+
+.article-sidebar h2 {
+  font-size: 16px;
+  font-family: SF-Pro-Display-Medium;
+  margin-bottom: 18px;
+  margin-top: 15px;
+  color: var(--text-color);
+}
+
+.article-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.article-sidebar ul li {
+  margin-bottom: 13px;
+}
+
+/* Можно также применить отступ только к подзаголовкам, если они имеют особые классы */
+.article-sidebar ul li.subheading {
+  padding-left: 20px; /* Больший отступ для подзаголовков */
+}
+
+.article-sidebar ul li a {
+  text-decoration: none;
+  font-family: SF-Pro-Display-Regular;
+  color: #008cff; /* Синий для ссылок */
+  font-size: 16px;
+}
+
+.article-sidebar ul li a.active {
+  position: relative; /* Позволяет использовать псевдоэлемент */
+  color: var(--sidebar-text-color); /* Белый цвет текста */
+  background-color: #008cff; /* Синий фон */
+  border-radius: 4px; /* Закругленные углы */
+  padding: 5px 8px; /* Внутренние отступы для удобства */
+}
+
+/* Основной контент */
+.article-content {
+  flex: 1;
+  padding: 7px 20px 20px 20px;
+  background-color: var(--style-back-color);
+  border-radius: 9px;
+  border: 1px solid var(--style-border);
+  line-height: 1.6;
+}
+
+.article-content h1 {
+  font-family: "SF-Pro-Display-Medium";
+  font-size: 30px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.article-content h2 {
+  font-family: "SF-Pro-Display-Medium";
+  font-size: 26px;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.article-content p {
+  font-family: "SF-Pro-Display-Regular";
+  margin-bottom: 15px;
+  color: var(--text-color-p);
+  font-size: 18px;
+}
+
+.note {
+  border: 1px solid var(--note-border);
+  background-color: var(--note-back-color); /* Цвет фона */
+  padding: 10px 15px; /* Внутренние отступы */
+  margin: 20px 0; /* Внешние отступы */
+  border-radius: 7px; /* Скругленные углы */
+}
+
+.note p {
+  font-family: "SF-Pro-Display-Medium";
+  margin: 0; /* Убираем отступы между абзацами */
+  color: var(--text-color); /* Цвет текста */
+}
+
+.note a {
+  font-family: "SF-Pro-Display-Medium";
+  color: var(--note-a-color); /* Синий цвет ссылок */
+  text-decoration: none; /* Убираем подчеркивание */
+}
+
+.warn {
+  border: 1px solid var(--warn-border);
+  background-color: var(--warn-back-color); /* Цвет фона */
+  padding: 10px 15px; /* Внутренние отступы */
+  margin: 20px 0; /* Внешние отступы */
+  border-radius: 7px; /* Скругленные углы */
+}
+
+.warn p {
+  font-family: "SF-Pro-Display-Medium";
+  margin: 0; /* Убираем отступы между абзацами */
+  color: var(--text-color); /* Цвет текста */
+}
+
+.note a:hover {
+  text-decoration: underline; /* Подчеркивание при наведении */
+}
+.image-gallery {
+  display: flex; /* Расположение изображений в ряд */
+  justify-content: center; /* Центрирование изображений */
+  gap: 15px; /* Расстояние между изображениями */
+  margin-top: 20px;
+}
+
+.image-gallery img {
+  width: 200px; /* Фиксированный размер изображений */
+  height: auto; /* Сохраняет пропорции */
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.1); /* Увеличение при наведении */
+}
+
+#dynamic-description {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  color: #1e578b;
+  font-style: italic;
+}
+.image-charts {
+  display: flex; /* Устанавливаем флекс-контейнер */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  gap: 15px; /* Добавляем расстояние между изображениями */
+  flex-wrap: wrap; /* Позволяет перенос изображений на следующую строку, если они не помещаются */
+}
+
+.image-charts img {
+  width: 500px; /* Фиксированный размер изображений */
+  height: auto; /* Сохраняем пропорции */
+  cursor: pointer; /* Указатель при наведении */
+  border-radius: 10px; /* Закругленные углы (опционально) */
+}
+
+.image-trigger {
+  display: flex; /* Устанавливаем флекс-контейнер */
+  justify-content: center; /* Центрируем содержимое по горизонтали */
+  align-items: center; /* Центрируем содержимое по вертикали */
+  gap: 15px; /* Добавляем расстояние между изображениями */
+  flex-wrap: wrap; /* Позволяет перенос изображений на следующую строку, если они не помещаются */
+}
+
+.image-trigger img {
+  width: 310px; /* Фиксированный размер изображений */
+  height: auto; /* Сохраняем пропорции */
+  cursor: pointer; /* Указатель при наведении */
+  border-radius: 10px; /* Закругленные углы (опционально) */
+}
+footer {
+  background-color: var(--footer-back-color);
+  color: var(--text-color);
+  padding: 20px 20px;
+  font-family: "SF-Pro-Display-Regular", sans-serif;
+  text-align: center;
+  border-top: 1px solid var(--footer-border);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-container .column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-container .column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #007aff;
+}
+
+.footer-container .column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-container .column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-container .column ul li a {
+  color: var(--footer-text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-container .column ul li a:hover {
+  color: #007aff;
+}
+.footer-bottom {
+  margin-top: 35px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.footer-bottom a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USB Tester Documentation</title>
+    <link rel="stylesheet" href="start.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a href="/index.html" class="logo">Pisppus</a>
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="#calculators" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/USB-Tester" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a
+            href="/projects/usb-tester/docs/Usb-tester-docs.html"
+            target="_blank"
+          >
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <main class="content">
+      <section class="intro">
+        <h1>USB Tester (Getting Started)</h1>
+        <p>
+          Do you have questions about using or setting up the device? This
+          documentation will help you understand the basic functions and
+          settings of the USB tester. We have described the process of
+          connection, measuring voltage and current, as well as how to interpret
+          the results. If you have any questions, do not hesitate to refer to
+          the FAQ section or contact support.
+        </p>
+      </section>
+
+      <section class="card-container">
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/main.png"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Basic Recommendations</h2>
+              <p class="card-description">
+                This part of the documentation will introduce the features and
+                tips for getting started with the device, and will describe the
+                basic functions of the USB tester.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/adc.png"
+              alt="Icon 2"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">ADC</h2>
+              <p class="card-description">
+                Learn about recommendations for setting up an ADC to ensure
+                maximum measurement accuracy, calibrate the device, and how to
+                troubleshoot errors.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/gpio.png"
+              alt="Icon 3"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">GPIO</h2>
+              <p class="card-description">
+                Learn how to effectively use available GPIO pins to connect
+                additional modules, how to extend the functionality of your
+                device by adding new functions.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <!--<div class="card">
+          <img src="/image/icons/icon4.png" alt="Icon 4" class="card-icon" />
+          <div class="card-content">
+            <h2 class="card-title">Feature 4</h2>
+            <p class="card-description">
+              Dive into the fourth feature and how to use it effectively.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/image/icons/icon5.png" alt="Icon 5" class="card-icon" />
+          <div class="card-content">
+            <h2 class="card-title">Feature 5</h2>
+            <p class="card-description">
+              A comprehensive overview of the fifth feature.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/image/icons/icon6.png" alt="Icon 6" class="card-icon" />
+          <div class="card-content">
+            <h2 class="card-title">Feature 6</h2>
+            <p class="card-description">
+              Learn how the sixth feature improves performance.
+            </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="/image/icons/icon7.png" alt="Icon 7" class="card-icon" />
+          <div class="card-content">
+            <h2 class="card-title">Feature 7</h2>
+            <p class="card-description">
+              All you need to know about the seventh feature.
+            </p>
+          </div>
+        </div> -->
+
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/program.png"
+              alt="Icon 8"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">PC Program</h2>
+              <p class="card-description">
+                Learn how to download and set up a program that allows you to
+                output data from your device to your computer, as well as
+                analyze this data using available tools.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/error.png"
+              alt="Icon 9"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">MCP</h2>
+              <p class="card-description">
+                The most common problems are those that users typically
+                experience with their device, whether due to hardware or
+                software issues.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/getting-started.html" class="card-link">
+          <div class="card">
+            <img
+              src="/image/projects-img/usb-tester-img/docs-main/graphic.png"
+              alt="Icon 10"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Graphical interface</h2>
+              <p class="card-description">
+                Discover how to add a custom font, craft your own design style,
+                or create and implement a new menu in your project.
+              </p>
+            </div>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main section"); // Все секции
+        const navLinks = document.querySelectorAll(".article-sidebar ul li a"); // Ссылки в боковой панели
+
+        // Функция для активации ссылки
+        function activateLink() {
+          let currentSection = null;
+
+          // Найти видимую секцию
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+              currentSection = section;
+            }
+          });
+
+          // Удалить активное состояние у всех ссылок
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          // Добавить активное состояние текущей ссылке
+          if (currentSection) {
+            const activeLink = document.querySelector(
+              `.article-sidebar ul li a[href="#${currentSection.id}"]`
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        }
+
+        // Отслеживать прокрутку
+        window.addEventListener("scroll", activateLink);
+
+        // Вызвать при загрузке страницы
+        activateLink();
+      });
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+    </script>
+  </body>
+</html>

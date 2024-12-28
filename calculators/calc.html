@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>USB Tester Documentation</title>
+    <link rel="stylesheet" href="calc.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <a href="/index.html" class="logo">Pisppus</a>
+      <div class="nav">
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="#calculators" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/USB-Tester" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a href="docs.html" target="_blank">
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <main class="content">
+      <section class="intro">
+        <h1>Electronic Calculators List</h1>
+        <p>
+          A section with convenient tools for calculating parameters in circuits
+          and devices. You can easily select resistances, capacities, voltage
+          dividers and other components. Just enter the data and get the result
+          in seconds - quickly, accurately and without unnecessary errors!
+        </p>
+      </section>
+
+      <section class="card-container">
+        <a href="/calculators/resistor-divider.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/image/calculators-img/divider-dark.png"
+              data-dark="/image/calculators-img/divider-light.png"
+              alt="Resistor Divider"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Resistor Divider</h2>
+              <p class="card-description">
+                Quickly calculate resistor values for a given voltage division.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/resistor-power.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/image/calculators-img/power-dark.png"
+              data-dark="/image/calculators-img/power-light.png"
+              alt="Resistor Power"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Resistor Power</h2>
+              <p class="card-description">
+                Calculates the power dissipated in a resistor and helps choose
+                the correct rating.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/resistor-combine.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/resistor-combine-light.png"
+              data-dark="/images/icons/resistor-combine-dark.png"
+              alt="Resistor Combination"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Resistor Combination</h2>
+              <p class="card-description">
+                Calculates total resistance for parallel or series resistor
+                combinations.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/fuse-selection.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/fuse-selection-light.png"
+              data-dark="/images/icons/fuse-selection-dark.png"
+              alt="Fuse Selection"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Fuse Selection</h2>
+              <p class="card-description">
+                Helps to select a fuse for circuit overload protection.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/rc-filter.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/rc-filter-light.png"
+              data-dark="/images/icons/rc-filter-dark.png"
+              alt="RC Filter"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">RC Filter</h2>
+              <p class="card-description">
+                Calculates values for creating filters with a given cutoff
+                frequency.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/lc-filter.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/lc-filter-light.png"
+              data-dark="/images/icons/lc-filter-dark.png"
+              alt="LC Filter"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">LC Filter</h2>
+              <p class="card-description">
+                Calculates the inductance and capacitance values for a specific
+                filter.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/mosfet-selection.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/mosfet-selection-light.png"
+              data-dark="/images/icons/mosfet-selection-dark.png"
+              alt="MOSFET Selection"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">MOSFET Selection</h2>
+              <p class="card-description">
+                Helps choose a MOSFET for optimal performance in high-frequency
+                circuits.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/bjt-base-current.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/bjt-base-current-light.png"
+              data-dark="/images/icons/bjt-base-current-dark.png"
+              alt="BJT Base Current"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">BJT Base Current</h2>
+              <p class="card-description">
+                Calculates the base current for a BJT transistor in various
+                circuits.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/diode-selection.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/diode-selection-light.png"
+              data-dark="/images/icons/diode-selection-dark.png"
+              alt="Diode Selection"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Diode Selection</h2>
+              <p class="card-description">
+                Helps select a diode based on the voltage and current in the
+                circuit.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/thermal-calculation.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/thermal-calculation-light.png"
+              data-dark="/images/icons/thermal-calculation-dark.png"
+              alt="Thermal Calculation"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Thermal Calculation</h2>
+              <p class="card-description">
+                Calculates heat dissipation and helps select heat sinks for
+                effective cooling.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/wire-losses.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/wire-losses-light.png"
+              data-dark="/images/icons/wire-losses-dark.png"
+              alt="Wire Losses"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Wire Losses</h2>
+              <p class="card-description">
+                Calculates power losses in wires based on length and
+                cross-section.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/capacity-calculator.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/capacity-calculator-light.png"
+              data-dark="/images/icons/capacity-calculator-dark.png"
+              alt="Capacity Calculator"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Capacity Calculator</h2>
+              <p class="card-description">
+                Helps calculate the required capacity for a given circuit or
+                device.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/capacity-parallel.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/capacity-parallel-light.png"
+              data-dark="/images/icons/capacity-parallel-dark.png"
+              alt="Parallel Capacity"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Parallel Capacity</h2>
+              <p class="card-description">
+                Calculates total capacity for capacitors connected in parallel.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/resistor-series.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/resistor-series-light.png"
+              data-dark="/images/icons/resistor-series-dark.png"
+              alt="Series Resistors"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Series Resistors</h2>
+              <p class="card-description">
+                Calculates total resistance for resistors connected in series.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/voltage-drop.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/voltage-drop-light.png"
+              data-dark="/images/icons/voltage-drop-dark.png"
+              alt="Voltage Drop"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Voltage Drop</h2>
+              <p class="card-description">
+                Calculates voltage drop in wires based on their length and
+                cross-section.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/zener-diode.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/zener-diode-light.png"
+              data-dark="/images/icons/zener-diode-dark.png"
+              alt="Zener Diode"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Zener Diode</h2>
+              <p class="card-description">
+                Helps calculate parameters for Zener diodes to protect against
+                voltage surges.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/charging-time.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/charging-time-light.png"
+              data-dark="/images/icons/charging-time-dark.png"
+              alt="Charging Time"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Charging Time</h2>
+              <p class="card-description">
+                Calculates the time required to charge a battery with a
+                specified current.
+              </p>
+            </div>
+          </div>
+        </a>
+
+        <a href="/calculators/power-supply.html" class="card-link">
+          <div class="card">
+            <img
+              data-light="/images/icons/power-supply-light.png"
+              data-dark="/images/icons/power-supply-dark.png"
+              alt="Power Supply"
+              class="card-icon"
+            />
+            <div class="card-content">
+              <h2 class="card-title">Power Supply</h2>
+              <p class="card-description">
+                Calculates the required power supply rating for a circuit based
+                on components.
+              </p>
+            </div>
+          </div>
+        </a>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main section"); // Все секции
+        const navLinks = document.querySelectorAll(".article-sidebar ul li a"); // Ссылки в боковой панели
+
+        // Функция для активации ссылки
+        function activateLink() {
+          let currentSection = null;
+
+          // Найти видимую секцию
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+              currentSection = section;
+            }
+          });
+
+          // Удалить активное состояние у всех ссылок
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          // Добавить активное состояние текущей ссылке
+          if (currentSection) {
+            const activeLink = document.querySelector(
+              `.article-sidebar ul li a[href="#${currentSection.id}"]`
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        }
+
+        // Отслеживать прокрутку
+        window.addEventListener("scroll", activateLink);
+
+        // Вызвать при загрузке страницы
+        activateLink();
+      });
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для обновления изображений в зависимости от темы
+      function updateThemeImages(theme) {
+        const images = document.querySelectorAll("[data-light][data-dark]"); // Все изображения с атрибутами data-light и data-dark
+
+        images.forEach((img) => {
+          if (theme === "light") {
+            img.src = img.getAttribute("data-light"); // Устанавливаем путь для светлой темы
+          } else if (theme === "dark") {
+            img.src = img.getAttribute("data-dark"); // Устанавливаем путь для темной темы
+          }
+        });
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+          updateThemeImages("light"); // Обновляем изображения для светлой темы
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+          updateThemeImages("dark"); // Обновляем изображения для темной темы
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+          return;
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+    </script>
+  </body>
+</html>

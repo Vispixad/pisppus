@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pisppus Tools List</title>
+    <link rel="stylesheet" href="tools.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a href="/index.html" class="logo">Pisppus</a>
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="/calculators/calc.html" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/USB-Tester" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a href="docs.html" target="_blank">
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <section class="intro">
+      <h1>Tools List</h1>
+      <p>
+        A section with convenient tools for calculating parameters in circuits
+        and devices. You can easily select resistances, capacities, voltage
+        dividers and other components. Just enter the data and get the result in
+        seconds - quickly, accurately and without unnecessary errors!
+      </p>
+    </section>
+
+    <section class="projects">
+      <div class="card-container">
+        <a href="/tools/sunrise-os/article/sunrise-os.html" class="card-link">
+          <div class="card">
+            <div class="card-rectangles">
+              <div class="rectangle1">ESP32</div>
+              <div class="rectangle2">Medium</div>
+            </div>
+            <img
+              src="/image/general-img/project1.jpg"
+              alt="Project 1"
+              class="card-image"
+            />
+            <h3 class="card-header">Sunrise OS</h3>
+            <p class="card-description">
+              A simple OS for Arduino-like boards (ESP). Contains a couple dozen
+              different commands. It was created to get acquainted with file
+              systems.
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+    </script>
+  </body>
+</html>

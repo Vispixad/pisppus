@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sunrise OS - Mini Utility for Microcontroller Control</title>
+    <link rel="stylesheet" href="sunrise-os.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a href="/index.html" class="logo">Pisppus</a>
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="#calculators" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/SunriseOS" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a href="/usb-tester/docs/Usb-tester-docs.html" target="_blank">
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <nav class="breadcrumbs">
+      <a href="/index.html" class="breadcrumb">Main</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="/tools/tools.html" class="breadcrumb">Tools</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">Sunrise OS</span>
+    </nav>
+
+    <div class="article-layout">
+      <aside class="article-sidebar">
+        <nav>
+          <h2>IN THIS ARTICLE:</h2>
+          <ul>
+            <li><a href="#what-sunrise-os">What is Sunrise OS?</a></li>
+            <li><a href="#equipment">Equipment</a></li>
+            <li><a href="#acc-and-users">Accounts and Users</a></li>
+            <li><a href="#cont-read">Control-read equipment</a></li>
+            <li><a href="#network">Network</a></li>
+            <li><a href="#files-and-fold">Files and folders</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="article-content">
+        <section id="what-sunrise-os">
+          <div class="content-header"></div>
+          <h1>Sunrise OS (32-bit)</h1>
+          <img src="/image/tools-img/sunrise-os/prewiew.png" />
+        </section>
+
+        <section id="equipment">
+          <div class="content-header"></div>
+          <h1>Equipment</h1>
+          <ol>
+            <li><b>/reboot</b> - Instant reboot of the ESP32 board.</li>
+            <li>
+              <b>/reboot (ns, nm, nh)</b> - Reboot after a certain amount of
+              time:
+              <ul>
+                <li>s - seconds</li>
+                <li>m - minutes</li>
+                <li>h - hours</li>
+              </ul>
+            </li>
+            <li><b>/sleep</b> - Switch to sleep mode.</li>
+            <li><b>/wkup</b> - Exit sleep mode.</li>
+          </ol>
+        </section>
+
+        <section id="acc-and-users">
+          <div class="content-header"></div>
+          <h2>Accounts and Users</h2>
+          <p>
+            When you first turn on the system, an account with
+            <strong>Administrator</strong>
+            rights will be automatically created, for subsequent accounts
+            <strong>Guest</strong>
+            rights will be the default .
+          </p>
+          <ol>
+            <li><b>/createacc</b> - creating a new account.</li>
+            <li>
+              <b>/listacc</b>- viewing all previously created accounts with
+              indication of rights, name and password (temporarily).
+            </li>
+            <li>
+              <b>/rights (admin or guest) (account name)</b>- issuing or
+              changing rights for a specific account, optionally Administrator
+              or Guest .
+            </li>
+          </ol>
+        </section>
+
+        <section id="cont-read">
+          <div class="content-header"></div>
+          <h2>Control - read equipment</h2>
+          <ol>
+            <li>
+              <b>/command1 $$ /command2...</b> - sequential execution of
+              commands from left to right, the quantity and speed are limited by
+              the power limitations of your board.
+            </li>
+            <li>
+              <b>/rominfo</b> - display information about the occupied and free
+              permanent memory of the device.
+            </li>
+            <li>
+              <b>/raminfo</b> - display information about the occupied and free
+              RAM of the device.
+            </li>
+            <li>
+              <b>/boardinfo</b> - display of information about the processor
+              frequency, memory (RAM, ROM) "according to the passport".
+            </li>
+            <li>
+              <b>/maxperf</b> - maximum performance mode, meaning ESP32
+              operation at maximum frequency (240 MHz).
+            </li>
+            <li>
+              <b>/balperf</b> - balanced performance mode, reducing the device
+              frequency to 160 MHz.
+            </li>
+            <li>
+              <b>/enersav</b> - power saving mode, frequency reduction to 80 MHz
+              (WI-FI functions will not be available below 80).
+            </li>
+            <li>
+              <b>/uptime</b> - display of ESP32 operating time from the start.
+            </li>
+          </ol>
+        </section>
+
+        <section id="network">
+          <div class="content-header"></div>
+          <h2>Network</h2>
+          <ol>
+            <li>
+              <b>/checkwifi</b> - a simple test of the quality of the connection
+              between the board and the router via Wi-Fi.
+            </li>
+            <li>
+              <b>/conninf</b> - deeper network test, displaying IPv4, subnet
+              mask, gateway, MAC address, signal strength in dBm, SSID and
+              BSSID, and encryption type.
+            </li>
+            <li>
+              <b>/listnwork</b> - a list of available nearby WI-FI networks, as
+              well as displaying the presence of a password.
+            </li>
+            <li>
+              <b>/connwork (название сети)</b> - attempt to connect to the
+              selected network, as well as analysis of protection for entering a
+              password, if available.
+            </li>
+            <li><b>/ping</b> - test connection speed with google.com.</li>
+            <li>
+              <b>/ping (example.com)</b> - test the connection speed with the
+              site you have chosen.
+            </li>
+          </ol>
+        </section>
+
+        <section id="files-and-fold">
+          <div class="content-header"></div>
+          <h2>Files and folders</h2>
+          <ol>
+            <li>
+              <b>/checkfs</b> - starts checking user data files and file system
+              integrity (SPIFFS).
+            </li>
+            <li><b>/fs</b> - view all available files on the device.</li>
+            <li>
+              <b>/makng (file name)</b> - creating a text file (.txt) with the
+              selected name.
+            </li>
+            <li><b>/dellfs (file name)</b> - delete the file you selected.</li>
+            <li><b>/rdfs (file name)</b> - reading the selected file.</li>
+            <li>
+              <b>/rnmfs (old name) (new name)</b> - rename the selected file.
+            </li>
+            <li>
+              <b>/rdction (file name) (contents to be stored)</b> - editing the
+              contents of the selected file (overwriting the contents completely
+              with the new ones).
+            </li>
+            <li>
+              <b>/conhtml (file name.txt)</b> - convert the selected .TXT file
+              to .HTML file. Select a file with the .txt extension only.
+            </li>
+            <li>
+              <b>/contxt (file name.html)</b> - convert the selected .HTML file
+              to a .TXT file. Select a file with the .html extension only.
+            </li>
+            <li>
+              <b>/delfold (/folder name)</b> or
+              <b>/delfold (/folder1/folder2...)</b> - deleting the selected
+              folder in the root directory or along the selected path.
+            </li>
+            <li>
+              <b>/delfile (file name.txt)</b> - deleting the selected file in
+              the root directory or along the selected path.
+            </li>
+          </ol>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main section"); // Все секции
+        const navLinks = document.querySelectorAll(".article-sidebar ul li a"); // Ссылки в боковой панели
+
+        // Функция для активации ссылки
+        function activateLink() {
+          let currentSection = null;
+
+          // Найти видимую секцию
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+              currentSection = section;
+            }
+          });
+
+          // Удалить активное состояние у всех ссылок
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          // Добавить активное состояние текущей ссылке
+          if (currentSection) {
+            const activeLink = document.querySelector(
+              `.article-sidebar ul li a[href="#${currentSection.id}"]`
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        }
+
+        // Отслеживать прокрутку
+        window.addEventListener("scroll", activateLink);
+
+        // Вызвать при загрузке страницы
+        activateLink();
+      });
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+    </script>
+  </body>
+</html>

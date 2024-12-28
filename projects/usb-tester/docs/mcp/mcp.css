@@ -1,0 +1,377 @@
+@font-face {
+  font-family: "SF-Pro-Display-Medium";
+  src: url("/fonts/SF-Pro-Display-Medium.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+@font-face {
+  font-family: "SF-Pro-Display-Regular";
+  src: url("/fonts/SF-Pro-Display-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: normal;
+}
+
+/* Светлая тема */
+:root[data-theme="light"] {
+  --icon-spacing: 10px;
+  --blur-strength: 10px;
+  --background-color: #ffffff;
+  --text-color: #222222;
+  --text-color-p: #515151;
+  --sidebar-text-color: #ffffff;
+  --header-background: rgba(250, 250, 250, 0.63);
+  --header-border: #ebebeb;
+  --border-input: rgba(167, 166, 166, 0.63);
+  --background-input: rgba(255, 255, 255, 0.63);
+  --button1-color: rgb(255, 255, 255);
+  --button2-color: rgba(255, 255, 255, 0.63);
+  --style-back-color: #fafafa;
+  --style-border: #e9e9e9;
+  --theme-modal-button-hover: #d6d6d6;
+  --note-back-color: #e3f1ff;
+  --note-border: #c0dfff;
+  --note-a-color: #007acc;
+  --warn-border: #ffc0c0;
+  --warn-back-color: #ffe3e3;
+  --footer-back-color: #ededed;
+  --footer-border: #cfcfcf;
+  --footer-text-color: #636363;
+}
+/* Тёмная тема */
+:root[data-theme="dark"] {
+  --icon-spacing: 10px;
+  --blur-strength: 10px;
+  --background-color: #121212;
+  --text-color: #d8d8d8;
+  --text-color-p: #d8d8d8;
+  --sidebar-text-color: #ffffff;
+  --header-background: rgba(54, 54, 54, 0.63);
+  --header-border: #444444;
+  --border-input: rgba(97, 97, 97, 0.63);
+  --background-input: rgba(63, 63, 63, 0.63);
+  --button1-color: rgb(31, 31, 31);
+  --button2-color: rgba(63, 63, 63, 0.63);
+  --style-back-color: #232323;
+  --style-border: #3d3d3d;
+  --theme-modal-button-hover: #555555;
+  --note-back-color: #374a5d;
+  --note-border: #557fab;
+  --note-a-color: #1ca4ff;
+  --warn-border: #ab5555;
+  --warn-back-color: #5d3737;
+  --footer-back-color: #232323;
+  --footer-border: #3d3d3d;
+  --footer-text-color: #b7b7b7;
+}
+body {
+  margin: 0;
+  font-family: "SF-Pro-Display-Regular";
+  background-color: var(--background-color);
+}
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 55px;
+  display: flex;
+  background: var(--header-background);
+  border-bottom: 1px solid var(--header-border);
+  backdrop-filter: blur(var(--blur-strength));
+  padding: 0 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.header .logo {
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: "Schoolbell", cursive;
+}
+.header .nav {
+  font-family: "SF-Pro-Display-Medium";
+  display: flex;
+  gap: 30px;
+  margin-right: 20px;
+  font-size: 18px;
+  align-items: center;
+}
+
+.header a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 400;
+  transition: color 0.3s ease;
+}
+
+.header a:hover {
+  color: #007bff;
+}
+.calculators-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.beta-label {
+  background-color: #ff223f;
+  color: rgb(255, 255, 255);
+  font-size: 11.5px;
+  padding: 3px 6px;
+  border-radius: 6.5px;
+  font-weight: bold;
+}
+.header .right-section {
+  display: flex;
+  align-items: center; /* Центрируем элементы по вертикали */
+  gap: 20px; /* Расстояние между элементами */
+  margin-left: auto; /* Сдвигаем блок вправо */
+}
+
+.header .search-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.header input[type="text"] {
+  color: var(--text-color);
+  font-family: "SF-Pro-Display-Medium";
+  padding: 5px 10px;
+  width: 350px;
+  border: 1px solid var(--border-input);
+  background-color: var(--background-input);
+  border-radius: 11px;
+  outline: none;
+  font-size: 16.5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header input[type="text"]:focus {
+  border-color: #1d86ff;
+}
+.header .buttons {
+  display: flex;
+  gap: 20px; /* Расстояние между кнопками */
+}
+.header .button1 {
+  font-family: "SF-Pro-Display-Medium";
+  padding: 7px 15px;
+  font-size: 15px;
+  color: var(--button1-color);
+  border-radius: 8px;
+  border: none;
+  background-color: var(--text-color);
+  cursor: pointer;
+}
+.header .button2 {
+  font-family: "SF-Pro-Display-Medium";
+  background-color: var(--button2-color);
+  padding: 6px 15px;
+  font-size: 15px;
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
+  border-radius: 8px;
+  cursor: pointer;
+}
+.header .icons {
+  display: flex;
+  align-items: center;
+  gap: var(--icon-spacing);
+}
+
+.header .icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.theme-modal {
+  position: fixed;
+  top: 65px;
+  right: 15px;
+  background-color: var(--style-back-color);
+  border: 1px solid var(--style-border);
+  border-radius: 8px;
+  padding: 0px 10px 0px 10px;
+  opacity: 0; /* Начальное состояние */
+  transform: translateY(-10px); /* Смещение для анимации */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Плавное появление */
+}
+.theme-modal button {
+  display: block;
+  width: 100%;
+  margin: 9px 0;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  font-family: "SF-Pro-Display-Regular";
+  font-size: 15px;
+  color: var(--text-color);
+  background-color: var(--style-border);
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Плавная смена фона */
+}
+.theme-modal button:hover {
+  background-color: var(
+    --theme-modal-button-hover
+  ); /* Новый цвет фона при наведении */
+}
+.theme-modal.visible {
+  opacity: 1; /* Видимость */
+  transform: translateY(0); /* Убираем смещение */
+}
+
+.hidden {
+  display: none;
+}
+.intro {
+  text-align: center;
+  padding: 20px 470px 20px 470px;
+}
+.intro h1 {
+  font-size: 50px;
+  background: linear-gradient(90deg, #005cbb, #0056c5, #0083ff);
+  -webkit-background-clip: text;
+  color: transparent;
+  font-family: "SF-Pro-Display-Medium";
+}
+.intro p {
+  font-size: 19px;
+  color: #646464;
+}
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px 215px 60px 215px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  width: 320px;
+  height: 170px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-title {
+  font-size: 20px;
+  margin: 0 0 0 15px;
+}
+
+.card-description {
+  font-size: 18px;
+  color: #666;
+  margin: 10px 0 0 15px;
+}
+footer {
+  background-color: var(--footer-back-color);
+  color: var(--text-color);
+  padding: 20px 20px;
+  font-family: "SF-Pro-Display-Regular", sans-serif;
+  text-align: center;
+  border-top: 1px solid var(--footer-border);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.footer-container .column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+  text-align: left;
+}
+
+.footer-container .column h4 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: bold;
+  color: #007aff;
+}
+
+.footer-container .column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-container .column ul li {
+  margin-bottom: 8px;
+}
+
+.footer-container .column ul li a {
+  color: var(--footer-text-color);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-container .column ul li a:hover {
+  color: #007aff;
+}
+.footer-bottom {
+  margin-top: 35px;
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.footer-bottom a {
+  color: #007aff;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

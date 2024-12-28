@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pisspus</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="/path/to/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a href="index.html" class="logo">Pisppus</a>
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="/calculators/calc.html" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/USB-Tester" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a href="docs.html" target="_blank">
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <section class="hero">
+      <img src="/image/general-img/header-image.jpg" class="hero-image" />
+      <div class="hero-text">
+        <h1 class="large-header" id="typing-text"></h1>
+        <h2 class="sub-header">
+          I'm a passionate developer who strives to create innovative solutions
+          at the intersection of hardware and software. My goal is to transform
+          ideas into reality by developing products that matter and deliver
+          value.
+        </h2>
+        <div class="hero-buttons">
+          <button class="hero-button">Learn More</button>
+          <button class="hero-button">Contact Me</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently asked questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="icon">➤</span> What is this site?
+          </button>
+          <div class="faq-answer">
+            <p>
+              This site is a platform for showcasing innovative projects and
+              ideas in the field of technology and design.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="icon">➤</span> How to start working with us?
+          </button>
+          <div class="faq-answer">
+            <p>
+              Just contact us via the form on the website or by email, and we
+              will discuss the details of cooperation.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="icon">➤</span>What services do we provide?
+          </button>
+          <div class="faq-answer">
+            <p>
+              We offer a wide range of services: from development and design to
+              implementation of technologies and process optimization for your
+              business.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="icon">➤</span>What technologies do we use?
+          </button>
+          <div class="faq-answer">
+            <p>
+              We work with the latest technologies in web development, machine
+              learning, IoT and many other innovative areas.
+            </p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            <span class="icon">➤</span> What are the project completion times?
+          </button>
+          <div class="faq-answer">
+            <p>
+              We always find a suitable schedule for each project. The deadlines
+              depend on the complexity of the task, but we always stick to a
+              clear plan.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll(".faq-question").forEach((button) => {
+        button.addEventListener("click", function () {
+          // Закрываем все открытые вопросы
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            if (item !== this.parentElement) {
+              item.querySelector(".faq-answer").classList.remove("visible");
+              item.querySelector(".faq-question").classList.remove("active");
+            }
+          });
+
+          // Переключаем текущий вопрос
+          const answer = this.nextElementSibling;
+          answer.classList.toggle("visible");
+          this.classList.toggle("active");
+        });
+      });
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+      document.addEventListener("DOMContentLoaded", () => {
+        const text = "WELCOME TO PISPPUS"; // Текст для печати
+        const typingTextElement = document.getElementById("typing-text");
+        let index = 0; // Текущий индекс символа
+        let errorMode = false; // Режим исправления
+        const speed = 150; // Скорость печати (мс)
+        const mistakePause = 700; // Время "раздумий" перед исправлением ошибки
+        const errorChance = 0.2; // Вероятность ошибки (20%)
+        const possibleMistakes = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; // Возможные ошибочные символы
+
+        function typeText() {
+          if (index < text.length) {
+            if (!errorMode && Math.random() < errorChance) {
+              // Создаём ошибку
+              const wrongLetter = possibleMistakes.charAt(
+                Math.floor(Math.random() * possibleMistakes.length)
+              );
+              typingTextElement.textContent += wrongLetter;
+              errorMode = true; // Включаем режим исправления
+              setTimeout(clearText, mistakePause); // Начинаем исправление через паузу
+            } else if (!errorMode) {
+              // Печатаем правильную букву
+              typingTextElement.textContent += text.charAt(index);
+              index++;
+              setTimeout(typeText, speed);
+            }
+          } else {
+            // После того как весь текст был напечатан, очищаем посимвольно
+            setTimeout(() => {
+              deleteText(text.length - 1); // Начинаем удалять посимвольно
+            }, 1000); // Задержка перед очисткой
+          }
+        }
+
+        function deleteText(pos) {
+          // Удаляем символы один за другим
+          if (pos >= 0) {
+            typingTextElement.textContent = typingTextElement.textContent.slice(
+              0,
+              pos
+            );
+            setTimeout(() => deleteText(pos - 1), 50); // Задержка для анимации удаления
+          } else {
+            // После очистки текста начинаем снова
+            index = 0;
+            setTimeout(typeText, 500); // Задержка перед повтором
+          }
+        }
+
+        function clearText() {
+          // Удаляем последний символ (ошибочный)
+          typingTextElement.textContent = typingTextElement.textContent.slice(
+            0,
+            -1
+          );
+          errorMode = false; // Выходим из режима исправления
+          setTimeout(typeText, speed); // Продолжаем печатать с правильной буквы
+        }
+
+        typeText(); // Запускаем печать текста
+      });
+    </script>
+  </body>
+</html>

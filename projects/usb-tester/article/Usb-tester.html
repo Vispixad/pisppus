@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      USB Tester - Smart Device on ESP32 for Testing Blocks and Cables.
+    </title>
+    <link rel="stylesheet" href="usb-tester.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parkinsans:wght@300..800&family=Schoolbell&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav">
+        <a href="/index.html" class="logo">Pisppus</a>
+        <a href="/projects/projects.html">Projects</a>
+        <a href="/tools/tools.html">Tools</a>
+        <a href="#calculators" class="calculators-link">
+          Calculators
+          <span class="beta-label">BETA</span>
+        </a>
+        <a href="#support">Support</a>
+        <a href="#contacts">Contacts</a>
+        <a href="#partnership">Partnership</a>
+      </div>
+
+      <div class="right-section">
+        <div class="search-container">
+          <input type="text" placeholder="Search project..." />
+        </div>
+        <div class="buttons">
+          <a href="https://github.com/Vispixad/USB-Tester" target="_blank">
+            <button class="button1">Download</button>
+          </a>
+          <a href="/projects/usb-tester/docs/main/main.html" target="_blank">
+            <button class="button2">Docs</button>
+          </a>
+        </div>
+        <div class="icons">
+          <img
+            src="/image/general-img/sun.png"
+            class="icon theme-toggle"
+            onclick="toggleThemeWindow()"
+          />
+        </div>
+      </div>
+    </header>
+
+    <div id="theme-modal" class="theme-modal hidden">
+      <button onclick="setTheme('light')">Light</button>
+      <button onclick="setTheme('dark')">Dark</button>
+      <button onclick="setTheme('system')">As on the device</button>
+    </div>
+
+    <nav class="breadcrumbs">
+      <a href="/index.html" class="breadcrumb">Main</a>
+      <span class="breadcrumb-separator">›</span>
+      <a href="/projects/projects.html" class="breadcrumb">Projects</a>
+      <span class="breadcrumb-separator">›</span>
+      <span class="breadcrumb-current">USB Tester</span>
+    </nav>
+
+    <div class="article-layout">
+      <aside class="article-sidebar">
+        <nav>
+          <h2>IN THIS ARTICLE:</h2>
+          <ul>
+            <li><a href="#what-usb-tester">What is USB Tester?</a></li>
+            <li><a href="#components">Components</a></li>
+            <li><a href="#interface">Interface</a></li>
+            <li class="subheading">
+              <a href="#main-menu">Main menu</a>
+            </li>
+            <li class="subheading">
+              <a href="#ngr-menu">NGR menu</a>
+            </li>
+            <li class="subheading">
+              <a href="#charts">Charts</a>
+            </li>
+            <li class="subheading">
+              <a href="#application">Application</a>
+            </li>
+            <li><a href="#fast-charge">Fast Charge</a></li>
+            <li class="subheading">
+              <a href="#warning">Warning</a>
+            </li>
+            <li class="subheading">
+              <a href="#detection">Detection</a>
+            </li>
+            <li class="subheading">
+              <a href="#fast-charge-trigger">Fast Charge (Trigger)</a>
+            </li>
+            <li><a href="#statistics">Statistics</a></li>
+            <li class="subheading">
+              <a href="#battery-cap">Battery CAP</a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="article-content">
+        <section id="what-usb-tester">
+          <div class="content-header"></div>
+          <h1>USB Tester (ESP32)</h1>
+          <img src="/image/general-img/USB_Tester.jpg" />
+          <h1>What is USB Tester?</h1>
+          <p>
+            USB Tester is a device for measuring USB ports and cables parameters
+            such as voltage, current and power, as well as for testing the
+            functionality of USB devices. It is useful for both regular users
+            and professionals. The USB Tester can be a compact instrument with a
+            display showing the main values coming through the USB port. More
+            advanced models also provide information about charging protocols
+            (e.g. Apple, Qualcomm Quick Charge). The main function of the USB
+            Tester is to check the USB ports functionality and assess the
+            charging quality of various devices, as well as compliance with USB
+            standards. Translated with DeepL.com (free version)
+          </p>
+        </section>
+
+        <section id="components">
+          <div class="content-header"></div>
+          <h1>Components</h1>
+          <p id="general-description">
+            In my project I used components available on AliExpress and also
+            bought in local stores. The first thing we can see in the tester is
+            the display itself, I chose IPS 2 inch (240x320), it has good color
+            rendering, pixel density and IPS technology, which gives good
+            viewing angles compared to TFT, so it is perfect for this project.
+          </p>
+
+          <div class="image-gallery">
+            <img
+              src="/image/projects-img/usb-tester-img/display.jpg"
+              alt="Display"
+              class="hover-image"
+              data-description="In my projects I used the components available on AliExpress and also bought them from local stores. The first thing we can see in the tester is the display itself, I chose IPS 2 inches (240*320), it has good color rendering, appearance and IPS compliance, which gives good viewing performance compared to TFT, so it is great for this project."
+            />
+            <img
+              src="/image/projects-img/usb-tester-img/ina3221.avif"
+              alt="INA3221"
+              class="hover-image"
+              data-description="The next thing we can see after turning on the device is the basic
+              data: V, A, W, for this purpose I purchased the INA3221 ADC . This
+              is a digital three-channel current and voltage sensor with an I2C
+              bus, we will need several channels since there are 2 input (USB-A,
+              USB Type-C) and 2 output (USB-A, USB Type-C). It is also convenient
+              because it has many indicators for detecting errors in operation,
+              which can be added to your project."
+            />
+            <img
+              src="/image/projects-img/usb-tester-img/mpu9250.avif"
+              alt="MPU9250"
+              class="hover-image"
+              data-description=" The tester has a display rotation function when tilted (your
+              smartphone has a similar function), for this purpose the MPU-9250 is
+              used - this is a 9-axis device (3-axis accelerometer, 3-axis
+              gyroscope, 3-axis compass magnetometer). As you can see, there is a
+              reserve in the form of a compass (therefore, if 9250 is expensive
+              for you, take MPU6500), but I have not yet found a use for it in
+              this device, in turn, the gyroscope and accelerometer are used for
+              the display rotation function."
+            />
+            <img
+              src="/image/projects-img/usb-tester-img/esp32s3.jpg"
+              alt="ESP32-S3-N16R8"
+              class="hover-image"
+              data-description=" Next come various ports,
+            buttons, harness and the MK board itself - this is ESP32-S3N16R8. It
+            has 16 MB of permanent memory (PSRAM), 8 MB of operational memory
+            (RAM). This is more than enough for such a project, but it is not
+            necessary to take the version with 8 MB of RAM - you will not be
+            able to fill it completely."
+            />
+          </div>
+
+          <div id="dynamic-description">
+            Hover over an image to see its description here.
+          </div>
+        </section>
+
+        <section id="interface">
+          <div class="content-header"></div>
+          <h1>Interface</h1>
+        </section>
+
+        <section id="main-menu">
+          <div class="content-header"></div>
+          <h2>Main menu</h2>
+          <p>
+            Let's move on to the interface of the tester itself, when launched
+            we are greeted by the main menu with the main readings, the
+            temperature of the device itself (data is taken from the built-in
+            temperature sensor ESP32) and the stop/start indicator , below are
+            the actions for the buttons on this menu:
+          </p>
+          <img
+            src="/image/projects-img/usb-tester-img/general-usb-tester.jpg"
+          />
+          <ul>
+            <li>
+              <b>Press (middle button)</b> - stop/start readings (to view data
+              if required)
+            </li>
+            <li><b>Press (right button)</b> - go to the next menu</li>
+          </ul>
+        </section>
+
+        <section id="ngr-menu">
+          <div class="content-header"></div>
+          <h2>NGR menu</h2>
+          <p>
+            Here is a display of the main data (V, A, W), but already added is
+            the display of data on the DATA contacts (D+, D-), a small area for
+            displaying data from a specific cell, displaying up to 3 possible
+            charging protocols for general information, whether the trigger is
+            working (NONE/QC2.0...), recording data: Off - OFFLINE (the scale
+            shows the remaining memory of the device, or rather the area that is
+            allocated for this in the memory) and the time limit. Also from the
+            small interface there is an arrow to show the direction to which
+            port it is connected and a scale that is filled depending on the
+            data:
+          </p>
+          <img src="/image/projects-img/usb-tester-img/ngr-menu.jpg" />
+          <ul>
+            <li><b>On - ONLINE</b></li>
+            <li>
+              <b>Off - OFFLINE</b> (the scale shows the remaining memory of the
+              device, or rather the area that is allocated for this in the
+              memory) and the time limit. Also from the small interface there is
+              an arrow to show the direction to which port it is connected and a
+              scale that is filled depending on the data.
+            </li>
+          </ul>
+        </section>
+
+        <section id="charts">
+          <div class="content-header"></div>
+          <h2>Charts</h2>
+          <p>
+            You can pause on each of them similarly to the main menu. The tester
+            itself selects the display range so that the curve is visible and
+            does not go beyond the boundaries.
+          </p>
+          <div class="image-charts">
+            <img src="/image/projects-img/usb-tester-img/charts-va.jpg" />
+            <img src="/image/projects-img/usb-tester-img/charts-data.jpg" />
+          </div>
+          <p>The next third menu is the graph menu, there are 3 types:</p>
+          <ul>
+            <li><b>Graph V/A</b> - (voltage, current)</li>
+            <li><b>Graph D+/D</b> - (plus and minus DATA contacts)</li>
+            <li><b>Graph CC1/CC2</b> - (CC1 and CC2)</li>
+          </ul>
+        </section>
+
+        <section id="application">
+          <div class="content-header"></div>
+          <h2>Application</h2>
+          <p>
+            The last child menu is the Application menu, here in the rectangles
+            there are branches to other submenus. Also at the bottom is shown
+            the operating time of the device, which can be useful in some cases.
+            Regarding the controls:
+          </p>
+          <img src="/image/projects-img/usb-tester-img/application.jpg" />
+          <ul>
+            <li>
+              <b>Press (forward button)</b> - select subcategories (the selected
+              one is marked in blue).
+            </li>
+            <li><b>Press (back button)</b> - goes to the previous menu.</li>
+            <li>
+              <b>Press (middle button)</b> - will go to the selected
+              subcategory.
+            </li>
+          </ul>
+        </section>
+
+        <section id="fast-charge">
+          <div class="content-header"></div>
+          <h1>Fast Charge</h1>
+        </section>
+
+        <section id="warning">
+          <div class="content-header"></div>
+          <h2>Warning</h2>
+          <img src="/image/projects-img/usb-tester-img/warning.jpg" />
+          <p>
+            When entering the Fast Charge subcategory, we are greeted by a
+            warning, below there are 3 buttons to choose from:
+          </p>
+          <ul>
+            <li>
+              <b>READY</b> - transition to fast charging triggers (Samsung AfS,
+              QC2.0, 3.0, etc.).
+            </li>
+            <li>
+              <b>AUTO</b> - switch to scanning your power supply for charging
+              protocols.
+            </li>
+            <li><b>CANCEL</b> - exit from the subcategory.</li>
+          </ul>
+        </section>
+
+        <section id="detection">
+          <div class="content-header"></div>
+          <h2>Detection</h2>
+          <p>
+            Let's look at the case of clicking on the AUTO item, at the top the
+            detection version is written, the status is Testing or Finish, then
+            below each protocol is tested in turn for its presence in the power
+            supply, using the call method (trigger).
+          </p>
+          <img src="/image/projects-img/usb-tester-img/detection.jpg" />
+          <div class="note">
+            <p>
+              For more information on protocols and how they work with Arduino
+              compatible boards, please follow the links below:
+            </p>
+            <p>
+              <a
+                href="https://ru.wikipedia.org/wiki/%D0%9F%D1%80%D0%BE%D1%82%D0%BE%D0%BA%D0%BE%D0%BB%D1%8B_%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B9_%D0%B7%D0%B0%D1%80%D1%8F%D0%B4%D0%BA%D0%B8"
+                >What is fast charging?</a
+              >
+              ->
+              <a href="https://github.com/GyverLibs/QuickCharge"
+                >Integrating QC2.0 into Arduino</a
+              >
+            </p>
+          </div>
+        </section>
+
+        <section id="fast-charge-trigger">
+          <div class="content-header"></div>
+          <h2>Fast Charge (Trigger)</h2>
+          <div class="image-trigger">
+            <img src="/image/projects-img/usb-tester-img/trigger1.jpg" />
+            <img src="/image/projects-img/usb-tester-img/trigger2.jpg" />
+            <img src="/image/projects-img/usb-tester-img/trigger3.jpg" />
+          </div>
+          <p>
+            In this menu we have 6 triggers available (the list is expanding
+            with updates) and autodetection of protocols. Animations of movement
+            and a scrollbar were added for convenience. By navigation:
+          </p>
+          <ul>
+            <li>
+              <b>Press (forward button)</b> - selecting one of the triggers (the
+              selected one is marked in blue).
+            </li>
+            <li><b>Press (back button)</b> - go to the previous menu.</li>
+            <li>
+              <b>Press (middle button)</b> - will switch to the menu of the
+              selected trigger.
+            </li>
+          </ul>
+        </section>
+
+        <section id="statistics">
+          <div class="content-header"></div>
+          <h1>Statistics</h1>
+          <img src="/image/projects-img/usb-tester-img/statistics.jpg" />
+          <p>There are 3 submenus available here:</p>
+          <ul>
+            <li>
+              <b>List with cell statistics</b>
+            </li>
+            <li>
+              <b>Measuring battery capacity</b>
+            </li>
+            <li>
+              <b
+                >Recording graph curves Navigation is the same as for other
+                menus, I don’t see the point in explaining this.</b
+              >
+            </li>
+          </ul>
+        </section>
+
+        <!--
+        <section id="ngr-statistics">
+          <div class="content-header"></div>
+          <h1>NGR Statistics</h1>
+          <img src="/projects/usb-tester/statistics.jpg" />
+          <p>There are 3 submenus available here:</p>
+          <ul>
+            <li>
+              <b>List with cell statistics</b>
+            </li>
+            <li>
+              <b>Measuring battery capacity</b>
+            </li>
+            <li>
+              <b
+                >Recording graph curves Navigation is the same as for other
+                menus, I don’t see the point in explaining this.</b
+              >
+            </li>
+          </ul>
+        </section>
+        -->
+
+        <section id="battery-cap">
+          <div class="content-header"></div>
+          <h2>Battery CAP</h2>
+          <p>
+            This is the menu for measuring battery capacity and other things, at
+            the very top there is an ON/OFF indicator that shows whether the
+            recording of capacity data in the cell is enabled. Below is the cell
+            number where the recording will go, the recording time, the capacity
+            in Ah and Wh, as well as the voltage and estimated efficiency of the
+            battery. Red shows Ah only recalculated with the voltage and
+            efficiency you selected.
+          </p>
+          <img src="/image/projects-img/usb-tester-img/statistics.jpg" />
+          <div class="warn">
+            <p>
+              Saving is done only after stopping the recording by holding, so if
+              you turn off the device before stopping, the data will not be
+              saved. If you save after some time 0.5-1s, the memory will live
+              much less due to the more frequent number of records.
+            </p>
+          </div>
+          <p>As for navigation, it is a little different and more confusing:</p>
+          <ul>
+            <li>
+              <b>Hold 0.5s (middle button)</b> - ON/OFF writing data to the
+              selected cell.
+            </li>
+            <li><b>Press (back button)</b> - go to the previous menu.</li>
+            <li>
+              <b>Press (forward button)</b> - if you press the forward button,
+              one of the parameters (cell number, voltage, efficiency) will be
+              highlighted in blue rectangle and then we will be able to select
+              any one in turn. To confirm, press the middle button.
+            </li>
+            <ul>
+              <li>
+                <b>Press (forward button)</b> - if after pressing the middle
+                button to confirm, we press the forward button, we can increase
+                the voltage (step 0.1V), cell number or efficiency (step 1%).
+              </li>
+              <li>
+                <b>Press (back button)</b> - if after pressing the middle button
+                to confirm, we press the back button, we will be able to
+                decrease the voltage (step 0.1V), cell number or efficiency
+                (step 1%). >
+              </li>
+            </ul>
+          </ul>
+        </section>
+      </main>
+    </div>
+
+    <footer>
+      <div class="footer-container">
+        <div class="column">
+          <h4>About Us</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Cloud Solutions</a></li>
+            <li><a href="#">Design</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Tutorials</a></li>
+          </ul>
+        </div>
+
+        <div class="column">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">Newsletter</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Partners</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="social-icons">
+        <a href="#" target="_blank" class="fab fa-facebook"></a>
+        <a href="#" target="_blank" class="fab fa-twitter"></a>
+        <a href="#" target="_blank" class="fab fa-linkedin"></a>
+        <a href="#" target="_blank" class="fab fa-instagram"></a>
+        <a href="#" target="_blank" class="fab fa-youtube"></a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; 2024 Your Company. All rights reserved. |
+          <a href="#">Terms of Service</a> | <a href="#">Privacy Policy</a>
+        </p>
+      </div>
+    </footer>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const sections = document.querySelectorAll("main section"); // Все секции
+        const navLinks = document.querySelectorAll(".article-sidebar ul li a"); // Ссылки в боковой панели
+
+        // Функция для активации ссылки
+        function activateLink() {
+          let currentSection = null;
+
+          // Найти видимую секцию
+          sections.forEach((section) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top <= window.innerHeight / 2 && rect.bottom >= 0) {
+              currentSection = section;
+            }
+          });
+
+          // Удалить активное состояние у всех ссылок
+          navLinks.forEach((link) => {
+            link.classList.remove("active");
+          });
+
+          // Добавить активное состояние текущей ссылке
+          if (currentSection) {
+            const activeLink = document.querySelector(
+              `.article-sidebar ul li a[href="#${currentSection.id}"]`
+            );
+            if (activeLink) {
+              activeLink.classList.add("active");
+            }
+          }
+        }
+
+        // Отслеживать прокрутку
+        window.addEventListener("scroll", activateLink);
+
+        // Вызвать при загрузке страницы
+        activateLink();
+      });
+      // Функция для открытия/закрытия модального окна
+      function toggleThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+
+        if (modal.classList.contains("hidden")) {
+          modal.classList.remove("hidden"); // Показать окно
+          setTimeout(() => modal.classList.add("visible"), 10); // Добавляем задержку для плавного появления
+          document.addEventListener("click", outsideClickHandler); // Добавляем слушатель для кликов вне окна
+        } else {
+          closeThemeWindow(); // Закрыть окно
+        }
+      }
+
+      // Функция для закрытия окна
+      function closeThemeWindow() {
+        const modal = document.getElementById("theme-modal");
+        modal.classList.remove("visible"); // Убираем видимость
+        setTimeout(() => modal.classList.add("hidden"), 300); // Скрываем после завершения анимации
+        document.removeEventListener("click", outsideClickHandler); // Убираем слушатель
+      }
+
+      // Обработчик кликов за пределами окна
+      function outsideClickHandler(event) {
+        const modal = document.getElementById("theme-modal");
+        if (
+          !modal.contains(event.target) &&
+          !event.target.classList.contains("theme-toggle")
+        ) {
+          closeThemeWindow(); // Закрыть окно, если клик за пределами
+        }
+      }
+
+      // Функция для установки темы
+      function setTheme(theme) {
+        const themeIcon = document.querySelector(".theme-toggle");
+        closeThemeWindow(); // Закрываем окно после выбора
+
+        if (theme === "light") {
+          document.documentElement.setAttribute("data-theme", "light");
+          themeIcon.src = "/image/general-img/sun.png";
+        } else if (theme === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          themeIcon.src = "/image/general-img/moon.png";
+        } else if (theme === "system") {
+          const prefersDark = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+          ).matches;
+          setTheme(prefersDark ? "dark" : "light");
+        }
+
+        // Добавляем плавный переход для темы
+        document.body.classList.add("transitioning");
+        setTimeout(() => document.body.classList.remove("transitioning"), 300);
+
+        // Сохраняем выбранную тему
+        localStorage.setItem("theme", theme);
+      }
+
+      // Установка темы при загрузке страницы
+      document.addEventListener("DOMContentLoaded", () => {
+        const savedTheme = localStorage.getItem("theme") || "system";
+        setTheme(savedTheme);
+      });
+    </script>
+  </body>
+</html>
